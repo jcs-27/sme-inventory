@@ -1,0 +1,1 @@
+web: gunicorn sme_core.wsgi
