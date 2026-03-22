@@ -40,6 +40,7 @@
 </head>
 <body>
     <h1>SME Inventory System</h1>
+         <a href="/add/" style="background-color:#1F4E79;color:white;padding:8px 16px;border-radius:4px;text-decoration:none;display:inline-block;margin-bottom:20px;">+ Add Product</a>
     <p>Total products: {{ products|length }}</p>
     <table>
         <thead>
@@ -49,6 +50,7 @@
                 <th>Price (XAF)</th>
                 <th>Quantity</th>
                 <th>Date Added</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -59,6 +61,10 @@
                 <td>{{ product.price }}</td>
                 <td>{{ product.quantity }}</td>
                 <td>{{ product.date_added|date:"d M Y" }}</td>
+                <td>
+                    <a href="/{{ product.pk }}/edit/" style="background-color:#1F4E79;color:white;padding:5px 10px;border-radius:3px;text-decoration:none;margin-right:5px;">Edit</a>
+                    <a href="/{{ product.pk }}/delete/" style="background-color:#c0392b;color:white;padding:5px 10px;border-radius:3px;text-decoration:none;">Delete</a>
+                </td>
             </tr>
             {% empty %}
             <tr>
