@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Product
 
 def home(request):
-    return HttpResponse("SME Inventory System is live!")
+    products = Product.objects.all()
+    return render(request, 'inventory/product_list.html', {'products': products})
